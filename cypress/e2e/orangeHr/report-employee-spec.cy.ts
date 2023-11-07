@@ -19,9 +19,9 @@ let empNumber: number[] = [];
 export let idjob: any;
 export let idloc: any;
 export let nametest: any;
-export let m: any;
-export let n: any;
-export let v: any;
+export let secondHeaderData: any;
+export let firstHeaderData: any;
+export let tableData: any;
 
 beforeEach(() => {
   cy.intercept("/web/index.php/dashboard/index").as("loginpage");
@@ -48,24 +48,23 @@ beforeEach(() => {
       addSalaryEmployee(empNum);
     });
   }
+  firstHeaderData = ["Personal", "Job", "Salary"];
+  secondHeaderData = ["Employee First Name", "Job Title", "Amount"];
+  console.log(emp);
+  tableData = [
+    [emp[0], title, 6000],
+    [emp[1], title, 6000],
+    [emp[2], title, 6000],
+  ];
+  console.log(tableData);
+  cy.log(name1);
+  cy.log(title);
+  nametest = "report-test" + Math.round(1000 * Math.random());
 });
 
-describe("time sheet report functionality", () => {
+describe(" report functionality", () => {
   it("Report :  Generate an Employee report with search criteria ", () => {
-    m = ["Personal", "Job", "Salary"];
-    n = ["Employee First Name", "Job Title", "Amount"];
-    console.log(emp);
-    v = [
-      [emp[0], title, 6000],
-      [emp[1], title, 6000],
-      [emp[2], title, 6000],
-    ];
-    console.log(v);
-    cy.log(name1);
-    cy.log(title);
-    nametest = "testing" + Math.round(1000 * Math.random());
     cy.visit("/");
-
     AddReport.ReportDialoge();
     AddReport.AddReportActions();
     checkReportAssetrion();

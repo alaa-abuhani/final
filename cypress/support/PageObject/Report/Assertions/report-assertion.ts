@@ -1,20 +1,21 @@
 import {
-  m,
-  n,
+  firstHeaderData,
+  secondHeaderData,
   nametest,
-  v,
+  tableData,
 } from "../../../../e2e/orangeHr/report-employee-spec.cy";
 import GenericHepler from "../../../helpers/genericFunctions";
 import { checkReportName, checkToastMessage } from "./function-assertion";
+
 export const checkReportAssetrion = () => {
   //check message
   checkToastMessage();
   //check report name
   checkReportName(nametest);
   //check report first header
-  GenericHepler.GenricCheckReportFirstHeader(m);
+  GenericHepler.GenricCheckReportFirstHeader(firstHeaderData);
   //check report second header
-  GenericHepler.genricCheckReportSecondHeader(n);
+  GenericHepler.genricCheckReportSecondHeader(secondHeaderData);
   //check report table row number
   GenericHepler.GenericCheckTableRowNumber(".content-wrapper", ".rgRow", 3);
   //check report table cell
@@ -22,6 +23,6 @@ export const checkReportAssetrion = () => {
     ".content-wrapper",
     ".rgRow",
     ".rgCell",
-    v
+    tableData
   );
 };
