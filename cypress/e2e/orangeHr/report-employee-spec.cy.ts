@@ -9,7 +9,6 @@ import {
   deleteJob,
   deleteLocation,
 } from "../../support/Helper/api-helper";
-import { employess } from "../../support/Helper/payload-function";
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
@@ -51,8 +50,17 @@ beforeEach(() => {
     idloc = id;
   });
   //greate 3 employee via api and assign for that job &location
+  let employess: any[] = [];
+  let firstName: any;
+  let id: any;
+  let lastName: any;
+
   for (let i = 0; i < 3; i++) {
-    addEmployee().then((empNum) => {
+    firstName = "alaaa" + Math.round(10000 * Math.random());
+    id = "15" + Math.round(100 * Math.random());
+    lastName = "abuhani" + Math.round(10000 * Math.random());
+    employess.push(firstName);
+    addEmployee(firstName, id, lastName).then((empNum) => {
       empNumber.push(empNum);
       cy.visit(`/pim/viewPersonalDetails/empNumber/${empNum}`);
       addJobAndLocationEmployee(idjob, idloc, empNum);

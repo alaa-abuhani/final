@@ -28,9 +28,13 @@ export const addLocation = (locationName: any, countryCode: any) => {
     .then((res) => res.body.data.id);
 };
 
-export const addEmployee = () => {
+export const addEmployee = (
+  firstName: string,
+  id: string,
+  lastName: string
+) => {
   return cy
-    .AddNewEmployee(URLs.employee, employeeData())
+    .AddNewEmployee(URLs.employee, employeeData(firstName, id, lastName))
     .then((res) => res.body.data.empNumber);
 };
 

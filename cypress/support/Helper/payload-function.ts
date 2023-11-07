@@ -1,13 +1,8 @@
-export let employess: any[] = [];
-let firstName;
-let id: any;
-let lastName: any;
-export const employeeData = (): any => {
-  // export const employeeData = (): any => {
-  firstName = "alaaa" + Math.round(10000 * Math.random());
-  id = "15" + Math.round(100 * Math.random());
-  lastName = "abuhani" + Math.round(10000 * Math.random());
-  employess.push(firstName);
+export const employeeData = (
+  firstName: string,
+  id: string,
+  lastName: string
+): any => {
   let employee: any = {
     empPicture: null,
     employeeId: id,
