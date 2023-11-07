@@ -7,7 +7,7 @@ import {
   addSalaryEmployee,
 } from "../../support/Helper/api-helper";
 import { emp, name1, title } from "../../support/Helper/payload-function";
-import Report from "../../support/PageObject/Report/reports-page-section";
+import Report from "../../support/PageObject/Report/Actions/reports-page-section";
 
 const loginObj: login = new login();
 const reportObj: Report = new Report();

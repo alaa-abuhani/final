@@ -7,12 +7,12 @@ import {
   addSalaryEmployee,
 } from "../../support/Helper/api-helper";
 import { emp, name1, title } from "../../support/Helper/payload-function";
-import Report from "../../support/PageObject/Report/reports-page-section";
+import Report from "../../support/PageObject/Report/Actions/reports-page-section";
 
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
-import c from "../../support/PageObject/Report/add-report-all-sections";
-import AddReport from "../../support/PageObject/Report/add-report-all-sections";
+import c from "../../support/PageObject/Report/Actions/add-report-all-sections";
+import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
 
 const loginObj: login = new login();
 const reportObj: Report = new Report();

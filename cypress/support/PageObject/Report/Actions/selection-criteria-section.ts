@@ -1,4 +1,4 @@
-import { name1, title } from "../../Helper/payload-function";
+import { name1, title } from "../../../Helper/payload-function";
 export default class SelectionCriteria {
   elements = {
     inputSelect: () => cy.get(" .oxd-select-text-input"),
