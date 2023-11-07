@@ -15,7 +15,7 @@ export default class Report {
   getAddReportDialoge() {
     this.elements.addReportBtn().click();
   }
-  getReportActions() {
+  getReportPage() {
     this.getPIMPage();
     this.getReportsTab();
     this.getAddReportDialoge();

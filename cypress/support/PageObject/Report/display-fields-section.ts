@@ -1,5 +1,3 @@
-// import AddReport from "./add-report-dialog";
-// const AddReportObj: AddReport = new AddReport();
 export default class DisplayFields {
   elements = {
     inputSelect: () => cy.get(" .oxd-select-text-input"),

@@ -1,6 +1,4 @@
 import { name1, title } from "../../Helper/payload-function";
-// import AddReport from "./add-report-dialog";
-// const AddReportObj: AddReport = new AddReport();
 export default class SelectionCriteria {
   elements = {
     inputSelect: () => cy.get(" .oxd-select-text-input"),

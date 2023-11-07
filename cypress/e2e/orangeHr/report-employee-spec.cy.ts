@@ -7,14 +7,13 @@ import {
   addSalaryEmployee,
 } from "../../support/Helper/api-helper";
 import { emp, name1, title } from "../../support/Helper/payload-function";
-import Report from "../../support/PageObject/Report/reports-page";
-// import AddReport from "../../support/PageObject/Report/add-report-dialog";
+import Report from "../../support/PageObject/Report/reports-page-section";
 
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
-import c from "../../support/PageObject/Report/add-report-section";
+import c from "../../support/PageObject/Report/add-report-all-sections";
+import AddReport from "../../support/PageObject/Report/add-report-all-sections";
 
-// const AddReportObj: AddReport = new AddReport();
 const loginObj: login = new login();
 const reportObj: Report = new Report();
 
@@ -69,15 +68,9 @@ describe("time sheet report functionality", () => {
     cy.log(title);
     nametest = "testing" + Math.round(1000 * Math.random());
     cy.visit("/");
-    reportObj.getReportActions();
-    // AddReportObj.reportTitleAction();
-    // AddReportObj.jobAction();
-    // AddReportObj.locationAction();
-    // AddReportObj.personalAction();
-    // AddReportObj.jobFieldAction();
-    // AddReportObj.salaryAction();
-    // AddReportObj.saveReport();
-    c.dwwww();
+
+    AddReport.ReportDialoge();
+    AddReport.AddReportActions();
     checkReportAssetrion();
   });
 });
