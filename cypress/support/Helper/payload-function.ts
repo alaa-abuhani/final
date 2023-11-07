@@ -8,8 +8,8 @@ export let title = "test" + Math.round(1000 * Math.random());
 let firstName;
 let id: any;
 let lastName: any;
-//export const employeeData = (e?: ICreateEmployeePayload): any => {
-export const employeeData = (): any => {
+export const employeeData = (e?: ICreateEmployeePayload): any => {
+  // export const employeeData = (): any => {
   firstName = "alaaa" + Math.round(10000 * Math.random());
   id = "15" + Math.round(100 * Math.random());
   lastName = "abuhani" + Math.round(10000 * Math.random());

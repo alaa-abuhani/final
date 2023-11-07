@@ -10,7 +10,8 @@ import { emp, name1, title } from "../../support/Helper/payload-function";
 import Report from "../../support/PageObject/Report/reports-page";
 import AddReport from "../../support/PageObject/Report/add-report-dialog";
 import ReportAsserion from "../../support/PageObject/Report/report-assertion";
-AddReport;
+import GenericHepler from "../../support/helpers/genericFunctions";
+
 const AddReportObj: AddReport = new AddReport();
 const loginObj: login = new login();
 const reportObj: Report = new Report();
@@ -63,15 +64,22 @@ describe("time sheet report functionality", () => {
     AddReportObj.jobFieldAction();
     AddReportObj.salaryAction();
     AddReportObj.saveDialog();
-    ReportAsserionObj.checkToastMessage();
-    ReportAsserionObj.checkReportName(nametest);
+    ReportAsserion.checkToastMessage();
+    ReportAsserion.checkReportName(nametest);
     let m = ["Personal", "Job", "Salary"];
     let n = ["Employee First Name", "Job Title", "Amount"];
 
-    ReportAsserionObj.checkReportFirstHeader(m);
-    ReportAsserionObj.checkReportSecondHeader(n);
+    // ReportAsserionObj.checkReportFirstHeader(m);
+    // ReportAsserionObj.checkReportSecondHeader(n);
+    GenericHepler.GenricCheckReportFirstHeader(m);
+    GenericHepler.genricCheckReportSecondHeader(n);
 
-    ReportAsserionObj.checkTableRow(".content-wrapper", ".rgRow");
+    // ReportAsserionObj.GenericCheckTableRowNumber(
+    //   ".content-wrapper",
+    //   ".rgRow",
+    //   3
+    // );
+    GenericHepler.GenericCheckTableRowNumber(".content-wrapper", ".rgRow", 3);
     console.log(emp);
     let v = [
       [emp[0], title, 6000],
@@ -79,11 +87,17 @@ describe("time sheet report functionality", () => {
       [emp[2], title, 6000],
     ];
     console.log(v);
-    ReportAsserionObj.checkTableCell(
+    GenericHepler.GenericCheckTableCell(
       ".content-wrapper",
       ".rgRow",
       ".rgCell",
       v
     );
+    // ReportAsserionObj.checkTableCell(
+    //   ".content-wrapper",
+    //   ".rgRow",
+    //   ".rgCell",
+    //   v
+    // );
   });
 });
