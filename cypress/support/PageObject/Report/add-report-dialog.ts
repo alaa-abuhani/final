@@ -68,28 +68,27 @@ export default class AddReport {
   //Display Fields
   //Select Display Field Group
   //personal
-  // cy.get("  .oxd-select-text-input").eq(4).click({ force: true });
+
   getinputSelectFieldsGroup() {
     this.elements.inputSelect().eq(4).click({ force: true });
   }
-  // cy.get(".oxd-select-dropdown").contains("Personal").click();
+
   getDropdownMenuePersonal() {
     this.elements.dropdownMenue().contains("Personal").click();
   }
 
-  // cy.get("  .oxd-select-text-input").eq(5).click({ force: true });
   getinputSelectFieldsDisplay() {
     this.elements.inputSelect().eq(5).click({ force: true });
   }
-  // cy.get(".oxd-select-dropdown").contains("Employee First Name").click();
+
   getDropdownMenueEmployee() {
     this.elements.dropdownMenue().contains("Employee First Name").click();
   }
-  // cy.get(" .oxd-icon-button").eq(5).click();
+
   getAddBtnFields() {
     this.elements.addBtn().eq(5).click();
   }
-  // cy.get(" .oxd-switch-input").eq(0).click();
+
   getSwitchInputFirst() {
     this.elements.switchInput().eq(0).click();
   }
@@ -101,12 +100,12 @@ export default class AddReport {
     this.getAddBtnFields();
     this.getSwitchInputFirst();
   }
-  //joob
-  // cy.get("  .oxd-select-text-input").eq(4).click({ force: true });
+  //job
+
   getDropdownMenueJobField() {
     this.elements.dropdownMenue().contains("Job").click();
   }
-  // cy.get(".oxd-select-dropdown").contains("Job Title").click();
+
   getDropdownMenueJobTitle() {
     this.elements.dropdownMenue().contains("Job Title").click();
   }
@@ -117,31 +116,29 @@ export default class AddReport {
   ////jobb
   jobFieldAction() {
     this.getinputSelectFieldsGroup();
-    // cy.get(".oxd-select-dropdown").contains("Job").click();
+
     this.getDropdownMenueJobField();
-    // cy.get("  .oxd-select-text-input").eq(5).click({ force: true });
+
     this.getinputSelectFieldsDisplay();
-    // cy.get(".oxd-select-dropdown").contains("Job Title").click();
+
     this.getDropdownMenueJobTitle();
-    // cy.get(" .oxd-icon-button").eq(5).click();
+
     this.getAddBtnFields();
-    // cy.get(" .oxd-switch-input").eq(1).click();
+
     this.getSwitchInputSecond();
   }
   //salary
   salaryAction() {
-    // cy.get("  .oxd-select-text-input").eq(4).click({ force: true });
     this.getinputSelectFieldsGroup();
-    // cy.get(".oxd-select-dropdown").contains("Salary").click();
+
     this.getDropdownMenueSalary();
-    // cy.get("  .oxd-select-text-input").eq(5).click({ force: true });
+
     this.getinputSelectFieldsDisplay();
 
-    // cy.get(".oxd-select-dropdown").contains("Amount").click();
     this.getDropdownMenueAmount();
-    // cy.get(" .oxd-icon-button").eq(5).click();
+
     this.getAddBtnFields();
-    // cy.get(" .oxd-switch-input").eq(2).click();
+
     this.getSwitchInputLast();
   }
   getSwitchInputLast() {
@@ -154,12 +151,8 @@ export default class AddReport {
     this.elements.dropdownMenue().contains("Amount").click();
   }
 
-  // // button
-  // cy.get(".oxd-button--secondary").click({ force: true });
-  saveDialog() {
+  // button
+  saveReport() {
     this.elements.saveBtn().click({ force: true });
   }
 }
-
-// cy.get(".oxd-toast").should("exist");
-// cy.get(".oxd-toast").should("not.exist", { setTimeout: 10000 });

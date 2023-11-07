@@ -9,14 +9,13 @@ import {
 import { emp, name1, title } from "../../support/Helper/payload-function";
 import Report from "../../support/PageObject/Report/reports-page";
 import AddReport from "../../support/PageObject/Report/add-report-dialog";
-// import ReportAsserion from "../../support/PageObject/Report/ReportAssertion/function-assertion";
+
 import GenericHepler from "../../support/helpers/genericFunctions";
-import { checkReportAssetrion } from "../../support/PageObject/Report/ReportAssertion/report-assertion";
+import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 
 const AddReportObj: AddReport = new AddReport();
 const loginObj: login = new login();
 const reportObj: Report = new Report();
-// const ReportAsserionObj: ReportAsserion = new ReportAsserion();
 
 let empNumber: number[] = [];
 
@@ -67,23 +66,11 @@ describe("time sheet report functionality", () => {
     AddReportObj.personalAction();
     AddReportObj.jobFieldAction();
     AddReportObj.salaryAction();
-    AddReportObj.saveDialog();
-    // ReportAsserion.checkToastMessage();
-    // ReportAsserion.checkReportName(nametest);
+    AddReportObj.saveReport();
+
     m = ["Personal", "Job", "Salary"];
     n = ["Employee First Name", "Job Title", "Amount"];
 
-    // ReportAsserionObj.checkReportFirstHeader(m);
-    // ReportAsserionObj.checkReportSecondHeader(n);
-    // GenericHepler.GenricCheckReportFirstHeader(m);
-    // GenericHepler.genricCheckReportSecondHeader(n);
-
-    // ReportAsserionObj.GenericCheckTableRowNumber(
-    //   ".content-wrapper",
-    //   ".rgRow",
-    //   3
-    // );
-    // GenericHepler.GenericCheckTableRowNumber(".content-wrapper", ".rgRow", 3);
     console.log(emp);
     v = [
       [emp[0], title, 6000],
@@ -92,17 +79,5 @@ describe("time sheet report functionality", () => {
     ];
     console.log(v);
     checkReportAssetrion();
-    // GenericHepler.GenericCheckTableCell(
-    //   ".content-wrapper",
-    //   ".rgRow",
-    //   ".rgCell",
-    //   v
-    // );
-    // ReportAsserionObj.checkTableCell(
-    //   ".content-wrapper",
-    //   ".rgRow",
-    //   ".rgCell",
-    //   v
-    // );
   });
 });

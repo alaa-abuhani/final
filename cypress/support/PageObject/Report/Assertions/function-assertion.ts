@@ -6,12 +6,4 @@ export const checkToastMessage = () => {
 // name report
 export const checkReportName = (expectValue: string) => {
   cy.get("h6").eq(1).should("contain", expectValue);
-
-  //number of rows
-
-  // checkTableCell(
-
-  // checkReportFirstHeader
-
-  // //second header
 };
