@@ -13,13 +13,15 @@ export const URLs: any = {
   location: `${baseUrl}/api/v2/admin/locations`,
   jobDetails: `${baseUrl}/api/v2/admin/locations/`,
 };
-export const addJob = (title: any) => {
-  return cy.AddNewJob(URLs.job, jobData()).then((res) => res.body.data.id);
+export const addJob = (jobTitle: any) => {
+  return cy
+    .AddNewJob(URLs.job, jobData(jobTitle))
+    .then((res) => res.body.data.id);
 };
 
-export const addLocation = (name: any) => {
+export const addLocation = (locationName: any, countryCode: any) => {
   return cy
-    .AddNewLocation(URLs.location, locationData())
+    .AddNewLocation(URLs.location, locationData(locationName, countryCode))
     .then((res) => res.body.data.id);
 };
 
@@ -30,14 +32,14 @@ export const addEmployee = () => {
 };
 
 export const addJobAndLocationEmployee = (
-  idjob: any,
-  idloc: any,
+  jobId: any,
+  locId: any,
   empNumber: any
 ) => {
   cy.api({
     method: "PUT",
     url: `${baseUrl}/api/v2/pim/employees/${empNumber}/job-details`,
-    body: jobAndLocationEmployeeData(),
+    body: jobAndLocationEmployeeData(jobId, locId),
   });
 };
 

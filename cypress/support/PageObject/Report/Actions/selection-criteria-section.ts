@@ -1,4 +1,8 @@
-import { locationName, jobTitle } from "../../../Helper/payload-function";
+import {
+  jobTitle,
+  locationName,
+} from "../../../../e2e/orangeHr/report-employee-spec.cy";
+
 export default class SelectionCriteria {
   elements = {
     inputSelect: () => cy.get(" .oxd-select-text-input"),

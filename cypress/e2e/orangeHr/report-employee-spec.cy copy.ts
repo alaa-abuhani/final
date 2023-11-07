@@ -8,12 +8,12 @@ import {
   deleteEmployee,
   deleteJob,
 } from "../../support/Helper/api-helper";
-import { employess } from "../../support/Helper/payload-function";
+import { employess, jobTitle } from "../../support/Helper/payload-function";
 
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
-// import { countryCode, locationName } from "../../support/Init/report-init-data";
+import { countryCode, locationName } from "../../support/Init/report-init-data";
 
 const loginObj: login = new login();
 
@@ -25,9 +25,6 @@ export let nametest: any;
 export let secondHeaderData: any;
 export let firstHeaderData: any;
 export let tableData: any;
-export let locationName = "Amman" + Math.round(1000 * Math.random());
-export let countryCode = "JO";
-export let jobTitle = "QA Engineer·" + Math.round(1000 * Math.random());
 
 beforeEach(() => {
   cy.intercept("/web/index.php/dashboard/index").as("loginpage");
