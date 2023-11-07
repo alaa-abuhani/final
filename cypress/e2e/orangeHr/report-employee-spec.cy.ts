@@ -9,7 +9,7 @@ import {
   deleteJob,
 } from "../../support/Helper/api-helper";
 import {
-  emp,
+  employess,
   locationName,
   jobTitle,
 } from "../../support/Helper/payload-function";
@@ -56,11 +56,11 @@ beforeEach(() => {
   }
   firstHeaderData = ["Personal", "Job", "Salary"];
   secondHeaderData = ["Employee First Name", "Job Title", "Amount"];
-  console.log(emp);
+  console.log(employess);
   tableData = [
-    [emp[0], jobTitle, 6000],
-    [emp[1], jobTitle, 6000],
-    [emp[2], jobTitle, 6000],
+    [employess[0], jobTitle, 6000],
+    [employess[1], jobTitle, 6000],
+    [employess[2], jobTitle, 6000],
   ];
   console.log(tableData);
   cy.log(locationName);

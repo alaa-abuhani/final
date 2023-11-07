@@ -1,6 +1,6 @@
 import { ICreateEmployeePayload } from "../API/payload/employee-payload";
 
-export let emp: any[] = [];
+export let employess: any[] = [];
 import { idjob } from "../../e2e/orangeHr/report-employee-spec.cy";
 import { idloc } from "../../e2e/orangeHr/report-employee-spec.cy";
 export let locationName = "Amman" + Math.round(1000 * Math.random());
@@ -13,7 +13,7 @@ export const employeeData = (): ICreateEmployeePayload => {
   firstName = "alaaa" + Math.round(10000 * Math.random());
   id = "15" + Math.round(100 * Math.random());
   lastName = "abuhani" + Math.round(10000 * Math.random());
-  emp.push(firstName);
+  employess.push(firstName);
   let employee: any = {
     empPicture: null,
     employeeId: id,
