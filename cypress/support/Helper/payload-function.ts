@@ -1,14 +1,8 @@
-import { ICreateEmployeePayload } from "../API/payload/employee-payload";
-
 export let employess: any[] = [];
-
-// export let locationName = "Amman" + Math.round(1000 * Math.random());
-// let countryCode = "JO";
-// export let jobTitle = "QA Engineer·" + Math.round(1000 * Math.random());
 let firstName;
 let id: any;
 let lastName: any;
-export const employeeData = (): ICreateEmployeePayload => {
+export const employeeData = (): any => {
   // export const employeeData = (): any => {
   firstName = "alaaa" + Math.round(10000 * Math.random());
   id = "15" + Math.round(100 * Math.random());
@@ -55,7 +49,11 @@ export const locationData = (locationName: any, countryCode: any): any => {
   };
   return location;
 };
-export const salaryEmployeeData = (): any => {
+export const salaryEmployeeData = (
+  salaryComponent: any,
+  salaryAmount: any,
+  currencyId: string
+): any => {
   let salary: any = {
     salaryComponent: "5000",
     salaryAmount: "6000",

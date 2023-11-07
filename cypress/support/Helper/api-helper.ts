@@ -43,11 +43,16 @@ export const addJobAndLocationEmployee = (
   });
 };
 
-export const addSalaryEmployee = (empNumber: any) => {
+export const addSalaryEmployee = (
+  empNumber: any,
+  salaryComponent: any,
+  salaryAmount: any,
+  currencyId: any
+) => {
   cy.api({
     method: "Post",
     url: `${baseUrl}/api/v2/pim/employees/${empNumber}/salary-components`,
-    body: salaryEmployeeData(),
+    body: salaryEmployeeData(salaryComponent, salaryAmount, currencyId),
   });
 };
 

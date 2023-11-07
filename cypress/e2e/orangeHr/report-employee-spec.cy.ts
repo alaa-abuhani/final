@@ -9,25 +9,29 @@ import {
   deleteJob,
 } from "../../support/Helper/api-helper";
 import { employess } from "../../support/Helper/payload-function";
-
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
-// import { countryCode, locationName } from "../../support/Init/report-init-data";
 
 const loginObj: login = new login();
 
-let empNumber: number[] = [];
-
-export let idjob: any;
-export let idloc: any;
-export let nametest: any;
-export let secondHeaderData: any;
-export let firstHeaderData: any;
-export let tableData: any;
+export let jobTitle = "QA Engineer·" + Math.round(1000 * Math.random());
+export let nametest = "report-test" + Math.round(1000 * Math.random());
+export let secondHeaderData: any = [
+  "Employee First Name",
+  "Job Title",
+  "Amount",
+];
+export let firstHeaderData = ["Personal", "Job", "Salary"];
 export let locationName = "Amman" + Math.round(1000 * Math.random());
 export let countryCode = "JO";
-export let jobTitle = "QA Engineer·" + Math.round(1000 * Math.random());
+export let tableData: any;
+export let idjob: any;
+export let idloc: any;
+let salaryComponent = "5000";
+let salaryAmount = "6000";
+let currencyId = "JOD";
+let empNumber: number[] = [];
 
 beforeEach(() => {
   cy.intercept("/web/index.php/dashboard/index").as("loginpage");
@@ -51,21 +55,14 @@ beforeEach(() => {
       empNumber.push(empNum);
       cy.visit(`/pim/viewPersonalDetails/empNumber/${empNum}`);
       addJobAndLocationEmployee(idjob, idloc, empNum);
-      addSalaryEmployee(empNum);
+      addSalaryEmployee(empNum, salaryComponent, salaryAmount, currencyId);
     });
   }
-  firstHeaderData = ["Personal", "Job", "Salary"];
-  secondHeaderData = ["Employee First Name", "Job Title", "Amount"];
-  console.log(employess);
   tableData = [
     [employess[0], jobTitle, 6000],
     [employess[1], jobTitle, 6000],
     [employess[2], jobTitle, 6000],
   ];
-  console.log(tableData);
-  cy.log(locationName);
-  cy.log(jobTitle);
-  nametest = "report-test" + Math.round(1000 * Math.random());
 });
 
 describe("Report functionality", () => {
