@@ -1,6 +1,6 @@
 import login from "../../support/PageObject/login";
 import {
-  addEmloyee,
+  addEmployee,
   addJob,
   addJobAndLocationEmployee,
   addLocation,
@@ -41,7 +41,7 @@ beforeEach(() => {
   });
   //greate 3 employee via api and assign for that job &location
   for (let i = 0; i < 3; i++) {
-    addEmloyee().then((empNum) => {
+    addEmployee().then((empNum) => {
       empNumber.push(empNum);
       cy.visit(`/pim/viewPersonalDetails/empNumber/${empNum}`);
       addJobAndLocationEmployee(idjob, idloc, empNum);
@@ -62,7 +62,7 @@ beforeEach(() => {
   nametest = "report-test" + Math.round(1000 * Math.random());
 });
 
-describe(" report functionality", () => {
+describe("Report functionality", () => {
   it("Report :  Generate an Employee report with search criteria ", () => {
     cy.visit("/");
     AddReport.ReportDialoge();

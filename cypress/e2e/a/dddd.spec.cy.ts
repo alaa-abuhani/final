@@ -113,7 +113,7 @@ describe("time sheet report functionality", () => {
     cy.get(".oxd-toast").should("not.exist", { setTimeout: 10000 });
     cy.wait(3000);
     // name report
-    cy.get("h6").should("contain", nametest);
+    cy.get("h6").eq(1).should("contain", nametest);
     cy.get(".inner-content-table").children().as("children");
     cy.get(".inner-content-table").should("have.length", 1);
 
@@ -200,10 +200,7 @@ describe("time sheet report functionality", () => {
             cy.wrap($cell)
               .invoke("text")
               .should("contain", v[rowIndex][cellIndex]);
-
-            // }
           });
-        // });
       });
 
     //   // }

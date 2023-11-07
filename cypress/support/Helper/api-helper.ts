@@ -14,32 +14,18 @@ export const URLs: any = {
   jobDetails: `${baseUrl}/api/v2/admin/locations/`,
 };
 export const addJob = (title: any) => {
-  return cy
-    .request({
-      method: "POST",
-      url: URLs.job,
-      body: jobData(),
-    })
-    .then((res) => res.body.data.id);
+  return cy.AddNewJob(URLs.job, jobData()).then((res) => res.body.data.id);
 };
 
 export const addLocation = (name: any) => {
   return cy
-    .request({
-      method: "POST",
-      url: URLs.location,
-      body: locationData(),
-    })
+    .AddNewLocation(URLs.location, locationData())
     .then((res) => res.body.data.id);
 };
 
-export const addEmloyee = () => {
+export const addEmployee = () => {
   return cy
-    .request({
-      method: "POST",
-      url: URLs.employee,
-      body: employeeData(),
-    })
+    .AddNewEmployee(URLs.employee, employeeData())
     .then((response) => response.body.data.empNumber);
 };
 
@@ -48,7 +34,7 @@ export const addJobAndLocationEmployee = (
   idloc: any,
   empNumber: any
 ) => {
-  cy.request({
+  cy.api({
     method: "PUT",
     url: `${baseUrl}/api/v2/pim/employees/${empNumber}/job-details`,
     body: jobAndLocationEmployeeData(),
@@ -56,9 +42,37 @@ export const addJobAndLocationEmployee = (
 };
 
 export const addSalaryEmployee = (empNumber: any) => {
-  cy.request({
+  cy.api({
     method: "Post",
     url: `${baseUrl}/api/v2/pim/employees/${empNumber}/salary-components`,
     body: salaryEmployeeData(),
   });
 };
+// export const addEmloyee = () => {
+//   return cy
+//     .request({
+//       method: "POST",
+//       url: URLs.employee,
+//       body: employeeData(),
+//     })
+//     .then((response) => response.body.data.empNumber);
+// };
+
+// export const addJob = (title: any) => {
+//   return cy
+//     .request({
+//       method: "POST",
+//       url: URLs.job,
+//       body: jobData(),
+//     })
+//     .then((res) => res.body.data.id);
+// };
+// export const addLocation = (name: any) => {
+//   return cy
+//     .request({
+//       method: "POST",
+//       url: URLs.location,
+//       body: locationData(),
+//     })
+//     .then((res) => res.body.data.id);
+// };
