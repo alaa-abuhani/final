@@ -48,6 +48,38 @@ export const addSalaryEmployee = (empNumber: any) => {
     body: salaryEmployeeData(),
   });
 };
+
+export const deleteEmployee = (empNumber: any) => {
+  cy.request({
+    // delete the created employee
+    method: "DELETE",
+    url: "/api/v2/pim/employees",
+    body: {
+      ids: [empNumber],
+    },
+  });
+};
+export const deleteJob = (jobId: any) => {
+  cy.request({
+    // delete the created employee
+    method: "DELETE",
+    url: "api/v2/admin/job-titles",
+    body: {
+      ids: [jobId],
+    },
+  });
+};
+export const deleteLocation = (LocId: any) => {
+  cy.request({
+    // delete the created employee
+    method: "DELETE",
+    url: "api/v2/admin/locations",
+    body: {
+      ids: [LocId],
+    },
+  });
+};
+
 // export const addEmloyee = () => {
 //   return cy
 //     .request({

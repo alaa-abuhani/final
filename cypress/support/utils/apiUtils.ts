@@ -1,17 +1,12 @@
 /// <reference types="cypress" />
 
-import { ICreateEmployeePayload } from "../API/payload/empAPIPayload";
-import { ICreateJopTitlePayload } from "../API/payload/jobTitlePayload";
+import { ICreateEmployeePayload } from "../API/payload/employee-payload";
+import { ICreateJopTitlePayload } from "../API/payload/job-title-payload";
 import { ICreateLocationPayload } from "../API/payload/location-payload";
-import { ICreateEmpolyeeResponse } from "../API/response/empAPIResponse";
 
 declare global {
   namespace Cypress {
     interface Chainable {
-      addNewUser: (
-        requestUrl: string,
-        EmployeePayload: ICreateEmployeePayload
-      ) => Chainable<ICreateEmpolyeeResponse>;
       AddNewEmployee: (
         requestUrl: string,
         empPayload: ICreateEmployeePayload
@@ -27,16 +22,6 @@ declare global {
     }
   }
 }
-Cypress.Commands.add(
-  "addNewUser",
-  (requestUrl: string, EmployeePayload: ICreateEmployeePayload) => {
-    cy.request({
-      method: "POST",
-      url: requestUrl,
-      body: EmployeePayload,
-    });
-  }
-);
 
 Cypress.Commands.add(
   "AddNewEmployee",

@@ -7,7 +7,7 @@ const ReportNameObj: ReportName = new ReportName();
 const selectionCriteriaObj: SelectionCriteria = new SelectionCriteria();
 const DisplayFieldsObj: DisplayFields = new DisplayFields();
 const buttonObj: button = new button();
-const ReportOBJL: Report = new Report();
+const ReportObj: Report = new Report();
 
 export default class AddReport {
   static AddReportActions() {
@@ -17,6 +17,6 @@ export default class AddReport {
     buttonObj.saveReport();
   }
   static ReportDialoge() {
-    ReportOBJL.getReportPage();
+    ReportObj.getReportPage();
   }
 }

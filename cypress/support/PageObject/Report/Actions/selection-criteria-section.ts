@@ -1,4 +1,4 @@
-import { name1, title } from "../../../Helper/payload-function";
+import { locationName, jobTitle } from "../../../Helper/payload-function";
 export default class SelectionCriteria {
   elements = {
     inputSelect: () => cy.get(" .oxd-select-text-input"),
@@ -22,7 +22,7 @@ export default class SelectionCriteria {
     this.elements.iconSelect().eq(2).click();
   }
   getSelectJob() {
-    this.elements.dropdownMenue().contains(title).click();
+    this.elements.dropdownMenue().contains(jobTitle).click();
   }
 
   //  location
@@ -35,7 +35,7 @@ export default class SelectionCriteria {
     this.elements.iconSelect().eq(3).click();
   }
   getSelectlocation() {
-    this.elements.dropdownMenue().contains(name1).click();
+    this.elements.dropdownMenue().contains(locationName).click();
   }
 
   jobAction() {

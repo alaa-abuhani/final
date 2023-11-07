@@ -5,8 +5,14 @@ import {
   addJobAndLocationEmployee,
   addLocation,
   addSalaryEmployee,
+  deleteEmployee,
+  deleteJob,
 } from "../../support/Helper/api-helper";
-import { emp, name1, title } from "../../support/Helper/payload-function";
+import {
+  emp,
+  locationName,
+  jobTitle,
+} from "../../support/Helper/payload-function";
 
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
@@ -32,11 +38,11 @@ beforeEach(() => {
     loginObj.loginValid(logininfo[0].Username, logininfo[0].Password);
   });
   //greate job via api
-  addJob(title).then((id) => {
+  addJob(jobTitle).then((id) => {
     idjob = id;
   });
   //greate location via api
-  addLocation(name1).then((id) => {
+  addLocation(locationName).then((id) => {
     idloc = id;
   });
   //greate 3 employee via api and assign for that job &location
@@ -52,13 +58,13 @@ beforeEach(() => {
   secondHeaderData = ["Employee First Name", "Job Title", "Amount"];
   console.log(emp);
   tableData = [
-    [emp[0], title, 6000],
-    [emp[1], title, 6000],
-    [emp[2], title, 6000],
+    [emp[0], jobTitle, 6000],
+    [emp[1], jobTitle, 6000],
+    [emp[2], jobTitle, 6000],
   ];
   console.log(tableData);
-  cy.log(name1);
-  cy.log(title);
+  cy.log(locationName);
+  cy.log(jobTitle);
   nametest = "report-test" + Math.round(1000 * Math.random());
 });
 
@@ -69,4 +75,11 @@ describe("Report functionality", () => {
     AddReport.AddReportActions();
     checkReportAssetrion();
   });
+});
+
+afterEach(() => {
+  for (let i = 0; i < 3; i++) {
+    deleteEmployee(empNumber[i]);
+  }
+  deleteJob(idjob);
 });

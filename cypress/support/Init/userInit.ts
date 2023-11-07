@@ -1,4 +1,4 @@
-import { ICreateEmployeePayload } from "../API/payload/empAPIPayload";
+import { ICreateEmployeePayload } from "../API/payload/employee-payload";
 import GenericHepler from "../helpers/genericFunctions";
 import { ICreateUserPayload } from "../API/payload/userAPIPayload";
 
