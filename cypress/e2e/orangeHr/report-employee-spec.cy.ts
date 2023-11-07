@@ -8,12 +8,13 @@ import {
 } from "../../support/Helper/api-helper";
 import { emp, name1, title } from "../../support/Helper/payload-function";
 import Report from "../../support/PageObject/Report/reports-page";
-import AddReport from "../../support/PageObject/Report/add-report-dialog";
+// import AddReport from "../../support/PageObject/Report/add-report-dialog";
 
 import GenericHepler from "../../support/helpers/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
+import c from "../../support/PageObject/Report/add-report-section";
 
-const AddReportObj: AddReport = new AddReport();
+// const AddReportObj: AddReport = new AddReport();
 const loginObj: login = new login();
 const reportObj: Report = new Report();
 
@@ -55,22 +56,8 @@ beforeEach(() => {
 
 describe("time sheet report functionality", () => {
   it("Report :  Generate an Employee report with search criteria ", () => {
-    cy.log(name1);
-    cy.log(title);
-    nametest = "testing" + Math.round(1000 * Math.random());
-    cy.visit("/");
-    reportObj.getReportActions();
-    AddReportObj.reportTitleAction();
-    AddReportObj.jobAction();
-    AddReportObj.locationAction();
-    AddReportObj.personalAction();
-    AddReportObj.jobFieldAction();
-    AddReportObj.salaryAction();
-    AddReportObj.saveReport();
-
     m = ["Personal", "Job", "Salary"];
     n = ["Employee First Name", "Job Title", "Amount"];
-
     console.log(emp);
     v = [
       [emp[0], title, 6000],
@@ -78,6 +65,19 @@ describe("time sheet report functionality", () => {
       [emp[2], title, 6000],
     ];
     console.log(v);
+    cy.log(name1);
+    cy.log(title);
+    nametest = "testing" + Math.round(1000 * Math.random());
+    cy.visit("/");
+    reportObj.getReportActions();
+    // AddReportObj.reportTitleAction();
+    // AddReportObj.jobAction();
+    // AddReportObj.locationAction();
+    // AddReportObj.personalAction();
+    // AddReportObj.jobFieldAction();
+    // AddReportObj.salaryAction();
+    // AddReportObj.saveReport();
+    c.dwwww();
     checkReportAssetrion();
   });
 });

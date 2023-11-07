@@ -1,9 +1,9 @@
 class login {
   elements = {
-    // userName: () => cy.get('[placeholder="Username"]'),
-    userName: () => cy.get('[placeholder="username"]'),
-    password: () => cy.get('[placeholder="password"]'),
-    // password: () => cy.get('[placeholder="Password"]'),
+    userName: () => cy.get('[placeholder="Username"]'),
+    // userName: () => cy.get('[placeholder="username"]'),
+    // password: () => cy.get('[placeholder="password"]'),
+    password: () => cy.get('[placeholder="Password"]'),
     loginBtn: () => cy.get("button"),
     Dashboard: () => cy.get(".oxd-topbar-header-title"),
 
