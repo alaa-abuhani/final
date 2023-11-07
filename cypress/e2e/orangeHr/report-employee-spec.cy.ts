@@ -7,6 +7,7 @@ import {
   addSalaryEmployee,
   deleteEmployee,
   deleteJob,
+  deleteLocation,
 } from "../../support/Helper/api-helper";
 import { employess } from "../../support/Helper/payload-function";
 import GenericHepler from "../../support/helpers/genericFunctions";
@@ -79,4 +80,5 @@ afterEach(() => {
     deleteEmployee(empNumber[i]);
   }
   deleteJob(idjob);
+  deleteLocation(idloc);
 });

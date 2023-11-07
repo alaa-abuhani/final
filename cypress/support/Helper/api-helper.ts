@@ -11,7 +11,10 @@ export const URLs: any = {
   employee: `${baseUrl}/api/v2/pim/employees`,
   job: `${baseUrl}/api/v2/admin/job-titles`,
   location: `${baseUrl}/api/v2/admin/locations`,
-  jobDetails: `${baseUrl}/api/v2/admin/locations/`,
+  jobDetails: `${baseUrl}/api/v2/admin/locations`,
+  jobDelete: `${baseUrl}/api/v2/admin/job-titles`,
+  employeeDelete: `${baseUrl}/api/v2/pim/employees`,
+  locationDelete: `${baseUrl}/api/v2/admin/locations`,
 };
 export const addJob = (jobTitle: any) => {
   return cy
@@ -28,7 +31,7 @@ export const addLocation = (locationName: any, countryCode: any) => {
 export const addEmployee = () => {
   return cy
     .AddNewEmployee(URLs.employee, employeeData())
-    .then((response) => response.body.data.empNumber);
+    .then((res) => res.body.data.empNumber);
 };
 
 export const addJobAndLocationEmployee = (
@@ -57,61 +60,29 @@ export const addSalaryEmployee = (
 };
 
 export const deleteEmployee = (empNumber: any) => {
-  cy.request({
-    // delete the created employee
+  cy.api({
     method: "DELETE",
-    url: "/api/v2/pim/employees",
+    url: URLs.employeeDelete,
     body: {
       ids: [empNumber],
     },
   });
 };
 export const deleteJob = (jobId: any) => {
-  cy.request({
-    // delete the created employee
+  cy.api({
     method: "DELETE",
-    url: "api/v2/admin/job-titles",
+    url: URLs.jobDelete,
     body: {
       ids: [jobId],
     },
   });
 };
 export const deleteLocation = (LocId: any) => {
-  cy.request({
-    // delete the created employee
+  cy.api({
     method: "DELETE",
-    url: "api/v2/admin/locations",
+    url: URLs.locationDelete,
     body: {
       ids: [LocId],
     },
   });
 };
-
-// export const addEmloyee = () => {
-//   return cy
-//     .request({
-//       method: "POST",
-//       url: URLs.employee,
-//       body: employeeData(),
-//     })
-//     .then((response) => response.body.data.empNumber);
-// };
-
-// export const addJob = (title: any) => {
-//   return cy
-//     .request({
-//       method: "POST",
-//       url: URLs.job,
-//       body: jobData(),
-//     })
-//     .then((res) => res.body.data.id);
-// };
-// export const addLocation = (name: any) => {
-//   return cy
-//     .request({
-//       method: "POST",
-//       url: URLs.location,
-//       body: locationData(),
-//     })
-//     .then((res) => res.body.data.id);
-// };

@@ -55,9 +55,9 @@ export const salaryEmployeeData = (
   currencyId: string
 ): any => {
   let salary: any = {
-    salaryComponent: "5000",
-    salaryAmount: "6000",
-    currencyId: "JOD",
+    salaryComponent: salaryComponent,
+    salaryAmount: salaryAmount,
+    currencyId: currencyId,
     comment: null,
     addDirectDeposit: false,
   };
