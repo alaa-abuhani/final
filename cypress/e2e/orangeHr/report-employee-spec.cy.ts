@@ -9,19 +9,23 @@ import {
 import { emp, name1, title } from "../../support/Helper/payload-function";
 import Report from "../../support/PageObject/Report/reports-page";
 import AddReport from "../../support/PageObject/Report/add-report-dialog";
-import ReportAsserion from "../../support/PageObject/Report/report-assertion";
+// import ReportAsserion from "../../support/PageObject/Report/ReportAssertion/function-assertion";
 import GenericHepler from "../../support/helpers/genericFunctions";
+import { checkReportAssetrion } from "../../support/PageObject/Report/ReportAssertion/report-assertion";
 
 const AddReportObj: AddReport = new AddReport();
 const loginObj: login = new login();
 const reportObj: Report = new Report();
-const ReportAsserionObj: ReportAsserion = new ReportAsserion();
+// const ReportAsserionObj: ReportAsserion = new ReportAsserion();
 
 let empNumber: number[] = [];
 
 export let idjob: any;
 export let idloc: any;
 export let nametest: any;
+export let m: any;
+export let n: any;
+export let v: any;
 
 beforeEach(() => {
   cy.intercept("/web/index.php/dashboard/index").as("loginpage");
@@ -64,35 +68,36 @@ describe("time sheet report functionality", () => {
     AddReportObj.jobFieldAction();
     AddReportObj.salaryAction();
     AddReportObj.saveDialog();
-    ReportAsserion.checkToastMessage();
-    ReportAsserion.checkReportName(nametest);
-    let m = ["Personal", "Job", "Salary"];
-    let n = ["Employee First Name", "Job Title", "Amount"];
+    // ReportAsserion.checkToastMessage();
+    // ReportAsserion.checkReportName(nametest);
+    m = ["Personal", "Job", "Salary"];
+    n = ["Employee First Name", "Job Title", "Amount"];
 
     // ReportAsserionObj.checkReportFirstHeader(m);
     // ReportAsserionObj.checkReportSecondHeader(n);
-    GenericHepler.GenricCheckReportFirstHeader(m);
-    GenericHepler.genricCheckReportSecondHeader(n);
+    // GenericHepler.GenricCheckReportFirstHeader(m);
+    // GenericHepler.genricCheckReportSecondHeader(n);
 
     // ReportAsserionObj.GenericCheckTableRowNumber(
     //   ".content-wrapper",
     //   ".rgRow",
     //   3
     // );
-    GenericHepler.GenericCheckTableRowNumber(".content-wrapper", ".rgRow", 3);
+    // GenericHepler.GenericCheckTableRowNumber(".content-wrapper", ".rgRow", 3);
     console.log(emp);
-    let v = [
+    v = [
       [emp[0], title, 6000],
       [emp[1], title, 6000],
       [emp[2], title, 6000],
     ];
     console.log(v);
-    GenericHepler.GenericCheckTableCell(
-      ".content-wrapper",
-      ".rgRow",
-      ".rgCell",
-      v
-    );
+    checkReportAssetrion();
+    // GenericHepler.GenericCheckTableCell(
+    //   ".content-wrapper",
+    //   ".rgRow",
+    //   ".rgCell",
+    //   v
+    // );
     // ReportAsserionObj.checkTableCell(
     //   ".content-wrapper",
     //   ".rgRow",
