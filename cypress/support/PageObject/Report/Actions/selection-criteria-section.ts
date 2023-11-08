@@ -10,7 +10,7 @@ export default class SelectionCriteria {
     addBtn: () => cy.get(" .oxd-icon-button"),
     iconSelect: () => cy.get(" .oxd-select-text--after > .oxd-icon"),
   };
-  // job
+  // job elements data
   getinputSelectCriteria() {
     this.elements.inputSelect().eq(0).click({ force: true });
   }
@@ -26,7 +26,7 @@ export default class SelectionCriteria {
   getSelectJob() {
     this.elements.dropdownMenue().contains(jobTitle).click();
   }
-  //  location
+  //  location elements data
   getDropdownMenueLocation() {
     this.elements.dropdownMenue().contains("Location").click();
   }
@@ -36,7 +36,7 @@ export default class SelectionCriteria {
   getSelectlocation() {
     this.elements.dropdownMenue().contains(locationName).click();
   }
-
+  // create job field
   jobAction() {
     this.getinputSelectCriteria();
     this.getDropdownMenueJob();
@@ -44,6 +44,7 @@ export default class SelectionCriteria {
     this.getIconSelectJob();
     this.getSelectJob();
   }
+  //create location field
   locationAction() {
     this.getinputSelectCriteria();
     this.getDropdownMenueLocation();
@@ -52,6 +53,7 @@ export default class SelectionCriteria {
     this.getSelectlocation();
   }
 
+  //function execute create job field & create location field
   selectionCriteriaAction = () => {
     this.jobAction();
     this.locationAction();

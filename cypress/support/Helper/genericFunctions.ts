@@ -1,4 +1,5 @@
 export default class GenericHepler {
+  //check table cell
   static GenericCheckTableCell(expectValue: any[]) {
     cy.get(".content-wrapper")
       .find(".rgRow")
@@ -12,7 +13,7 @@ export default class GenericHepler {
           });
       });
   }
-
+  //check table row number
   static GenericCheckTableRowNumber(expectValue: number) {
     cy.get(".content-wrapper")
       .find(".rgRow")
@@ -20,6 +21,7 @@ export default class GenericHepler {
         expect(row.length).to.equal(expectValue);
       });
   }
+  // check first header}
   static GenricCheckReportFirstHeader(expectValue: any[]) {
     cy.get(".header-wrapper")
       .find(".group-rgRow")
@@ -33,7 +35,7 @@ export default class GenericHepler {
           });
       });
   }
-  //second header}
+  // check second header}
   static genricCheckReportSecondHeader(expectValue: any[]) {
     cy.get(".header-wrapper")
       .find(".actual-rgRow")

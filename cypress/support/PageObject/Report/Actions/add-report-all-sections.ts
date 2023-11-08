@@ -10,13 +10,19 @@ const buttonObj: button = new button();
 const ReportObj: Report = new Report();
 
 export default class AddReport {
+  // open report page and add report dialog
   static ReportDialoge() {
     ReportObj.getReportPage();
   }
+  //execute  components add report dialog
   static AddReportActions() {
+    //type report name
     ReportNameObj.getInputNameReport();
+    //create selectionCriteria
     selectionCriteriaObj.selectionCriteriaAction();
+    //create DisplayField
     DisplayFieldsObj.DisplayFieldsActions();
+    //click save report
     buttonObj.saveReport();
   }
 }
