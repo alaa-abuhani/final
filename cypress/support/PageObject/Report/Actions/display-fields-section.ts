@@ -38,7 +38,6 @@ export default class DisplayFields {
     this.getSwitchInputFirst();
   }
   //job
-
   getDropdownMenueJobField() {
     this.elements.dropdownMenue().contains("Job").click();
   }
@@ -49,7 +48,6 @@ export default class DisplayFields {
   getSwitchInputSecond() {
     this.elements.switchInput().eq(1).click();
   }
-
   //job
   jobFieldAction() {
     this.getinputSelectFieldsGroup();

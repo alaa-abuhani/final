@@ -1,28 +1,4 @@
-[
-  {
-    "Username": "Admin",
-    "Password": "admin123"
-  },
-  {
-    "Username": "NotExistingUser",
-    "Password": "admin123"
-  },
-  {
-    "Username": "Admin",
-    "Password": "123456"
-  },
-  {
-    "Username": "NotExistingUser",
-    "Password": "123456"
-  },
-  {
-    "Username": " ",
-    "Password": " "
-  },
-  {
-    "Username": "Admin"
-  },
-  {
-    "Password": "admin123"
-  }
-]
+{
+  "Admin": "Admin",
+  "Password": "admin123"
+}

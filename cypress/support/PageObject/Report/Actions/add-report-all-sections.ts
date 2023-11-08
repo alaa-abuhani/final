@@ -10,13 +10,13 @@ const buttonObj: button = new button();
 const ReportObj: Report = new Report();
 
 export default class AddReport {
+  static ReportDialoge() {
+    ReportObj.getReportPage();
+  }
   static AddReportActions() {
     ReportNameObj.getInputNameReport();
     selectionCriteriaObj.selectionCriteriaAction();
     DisplayFieldsObj.DisplayFieldsActions();
     buttonObj.saveReport();
-  }
-  static ReportDialoge() {
-    ReportObj.getReportPage();
   }
 }

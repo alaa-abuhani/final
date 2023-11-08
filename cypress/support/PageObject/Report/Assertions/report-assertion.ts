@@ -1,4 +1,4 @@
-import GenericHepler from "../../../helpers/genericFunctions";
+import GenericHepler from "../../../Helper/genericFunctions";
 import { checkReportName, checkToastMessage } from "./function-assertion";
 
 export const checkReportAssetrion = (

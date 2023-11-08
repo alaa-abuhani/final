@@ -1,18 +1,21 @@
-{
-  "user": {
-    "id": "10010",
-    "firstName": "alaaa15",
-    "middleName": "ghaleb",
+[
+  {
+    "firstName": "alaa12",
     "lastName": "abuhani",
-    "empPicture": null,
-    "jobTitle": "Content Specialist"
+    "id": "10010"
   },
-  "supervisor": {
-    "id": "123test",
-    "firstName": "heba",
-    "middleName": "ahamd",
-    "lastName": "mohammad",
-    "empPicture": null,
-    "reportOption": "Indirect"
+  { "firstName": "alaa32", "lastName": "abuhani", "id": "10011" },
+  {
+    "firstName": "alaa145",
+    "lastName": "abuhani",
+    "id": "10012"
+  },
+  {
+    "jobTitle": "CiVil Engineer12",
+    "locationName": "Amman123",
+    "countryCode": "JO",
+    "salaryComponent": "5000",
+    "salaryAmount": "6000",
+    "currencyId": "JOD"
   }
-}
+]

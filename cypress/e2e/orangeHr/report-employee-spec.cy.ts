@@ -9,7 +9,7 @@ import {
   deleteJob,
   deleteLocation,
 } from "../../support/Helper/api-helper";
-import GenericHepler from "../../support/helpers/genericFunctions";
+import GenericHepler from "../../support/Helper/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
 
@@ -46,11 +46,11 @@ beforeEach(() => {
   cy.visit("/");
 
   //admin login
-  cy.fixture("login.json").as("logininfo");
-  cy.get("@logininfo").then((logininfo: any) => {
-    loginObj.loginValid(logininfo[0].Username, logininfo[0].Password);
+  cy.fixture("login.json").as("loginInfo");
+  cy.get("@loginInfo").then((loginInfo: any) => {
+    loginObj.loginValid(loginInfo.Admin, loginInfo.Password);
   });
-  cy.fixture("employeeInfo2.json").as("empInfo");
+  cy.fixture("employeeInfo.json").as("empInfo");
   cy.get("@empInfo").then((empInfo: any) => {
     // jobTitle = empInfo[3].jobTitle;
     // locationName = empInfo[3].locationName;
@@ -63,7 +63,6 @@ beforeEach(() => {
       idjob = id;
     });
     //greate location via api
-
     addLocation(locationName, countryCode).then((id) => {
       idloc = id;
     });

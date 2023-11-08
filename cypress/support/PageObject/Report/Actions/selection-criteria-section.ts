@@ -11,11 +11,9 @@ export default class SelectionCriteria {
     iconSelect: () => cy.get(" .oxd-select-text--after > .oxd-icon"),
   };
   // job
-
   getinputSelectCriteria() {
     this.elements.inputSelect().eq(0).click({ force: true });
   }
-
   getDropdownMenueJob() {
     this.elements.dropdownMenue().contains("Job Title").click();
   }
@@ -28,13 +26,10 @@ export default class SelectionCriteria {
   getSelectJob() {
     this.elements.dropdownMenue().contains(jobTitle).click();
   }
-
   //  location
-
   getDropdownMenueLocation() {
     this.elements.dropdownMenue().contains("Location").click();
   }
-
   getIconSelectlocation() {
     this.elements.iconSelect().eq(3).click();
   }
