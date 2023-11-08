@@ -12,6 +12,10 @@ import {
 import GenericHepler from "../../support/Helper/genericFunctions";
 import { checkReportAssetrion } from "../../support/PageObject/Report/Assertions/report-assertion";
 import AddReport from "../../support/PageObject/Report/Actions/add-report-all-sections";
+import {
+  visitEmployeeInfo,
+  visitHomePage,
+} from "../../support/PageObject/common-page-visit";
 
 const loginObj: login = new login();
 
@@ -75,7 +79,7 @@ beforeEach(() => {
         empInfo[i].lastName
       ).then((empNum) => {
         empNumber.push(empNum);
-        cy.visit(`/pim/viewPersonalDetails/empNumber/${empNum}`);
+        visitEmployeeInfo(empNum);
         addJobAndLocationEmployee(idjob, idloc, empNum);
         addSalaryEmployee(empNum, salaryComponent, salaryAmount, currencyId);
       });
@@ -91,7 +95,7 @@ beforeEach(() => {
 
 describe("Report functionality", () => {
   it("Report :Generate an Employee report with search criteria ", () => {
-    cy.visit("/");
+    visitHomePage();
     AddReport.ReportDialoge();
     AddReport.AddReportActions();
     checkReportAssetrion(
