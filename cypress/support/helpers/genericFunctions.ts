@@ -2,17 +2,13 @@ export default class GenericHepler {
   static GenericRandomString(maxNumber = 1000) {
     return Math.round(maxNumber * Math.random());
   }
-  static GenericCheckTableCell(
-    rowRapper: string,
-    rowName: string,
-    cellName: string,
-    expectValue: any[]
-  ) {
-    cy.get(rowRapper)
-      .find(rowName)
+
+  static GenericCheckTableCell(expectValue: any[]) {
+    cy.get(".content-wrapper")
+      .find(".rgRow")
       .each(($row, rowIndex) => {
         cy.wrap($row)
-          .find(cellName)
+          .find(".rgCell")
           .each(($cell, cellIndex) => {
             cy.wrap($cell)
               .invoke("text")
@@ -20,13 +16,10 @@ export default class GenericHepler {
           });
       });
   }
-  static GenericCheckTableRowNumber(
-    rowRapper: any,
-    rowName: any,
-    expectValue: number
-  ) {
-    cy.get(rowRapper)
-      .find(rowName)
+
+  static GenericCheckTableRowNumber(expectValue: number) {
+    cy.get(".content-wrapper")
+      .find(".rgRow")
       .then((row) => {
         expect(row.length).to.equal(expectValue);
       });

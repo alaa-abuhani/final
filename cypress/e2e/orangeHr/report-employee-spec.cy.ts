@@ -17,21 +17,18 @@ const loginObj: login = new login();
 
 export let jobTitle = "civil Engineer" + Math.round(10000 * Math.random());
 // export let jobTitle: string;
-export let nametest =
+export let reportName =
   "employee-report-test" + Math.round(10000 * Math.random());
-export let secondHeaderData: any = [
-  "Employee First Name",
-  "Job Title",
-  "Amount",
-];
-export let firstHeaderData = ["Personal", "Job", "Salary"];
+let secondHeaderData: any = ["Employee First Name", "Job Title", "Amount"];
+let firstHeaderData = ["Personal", "Job", "Salary"];
 export let locationName = "Amman" + Math.round(1000 * Math.random());
 export let countryCode = "JO";
 // export let locationName: string;
 // export let countryCode: string;
-export let tableData: any;
-export let idjob: any;
-export let idloc: any;
+let tableData: any;
+let tableRowNumber: number;
+let idjob: any;
+let idloc: any;
 let empNumber: number[] = [];
 let employees: any[] = [];
 let firstName: any;
@@ -89,15 +86,22 @@ beforeEach(() => {
       [employees[1], jobTitle, salaryAmount],
       [employees[2], jobTitle, salaryAmount],
     ];
+    tableRowNumber = employees.length;
   });
 });
 
 describe("Report functionality", () => {
-  it("Report :  Generate an Employee report with search criteria ", () => {
+  it("Report :Generate an Employee report with search criteria ", () => {
     cy.visit("/");
     AddReport.ReportDialoge();
     AddReport.AddReportActions();
-    checkReportAssetrion();
+    checkReportAssetrion(
+      reportName,
+      firstHeaderData,
+      secondHeaderData,
+      tableData,
+      tableRowNumber
+    );
   });
 });
 
