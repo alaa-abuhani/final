@@ -5,15 +5,7 @@
     "middleName": "ghaleb",
     "lastName": "abuhani",
     "empPicture": null,
-    "password": "123456a",
-    "maritalStatus": "Married",
-    "nationality": "Armenian",
-    "licenseExpiryDate": "Today",
-    "dateOfBirth": "Today",
-    "gender": "male",
-    "subUnit": "Administration",
-    "jobTitle": "Content Specialist",
-    "empStatus": "Freelance"
+    "jobTitle": "Content Specialist"
   },
   "supervisor": {
     "id": "123test",

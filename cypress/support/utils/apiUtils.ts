@@ -40,7 +40,7 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   "AddNewLocation",
   (requestUrl: string, locationPayload: ICreateLocationPayload) => {
-    return cy.request({
+    return cy.api({
       method: "POST",
       url: requestUrl,
       body: locationPayload,
